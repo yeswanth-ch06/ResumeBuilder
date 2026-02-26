@@ -44,5 +44,6 @@ def resume():
             return render_template("resume.html",data = data)
         return redirect(url_for("homepage"))
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+
+#     app.run()
