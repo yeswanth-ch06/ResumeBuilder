@@ -1,0 +1,41 @@
+form {
+    max-width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Top Full Width */
+.top {
+    margin-bottom: 25px;
+}
+
+/* Left + Right Layout */
+.main-content {
+    display: flex;
+    gap: 25px;
+}
+
+/* Left 35% */
+.leftmost {
+    flex: 0 0 35%;
+}
+
+/* Right remaining */
+.rightmost {
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .leftmost,
+    .rightmost {
+        flex: 1;
+    }
+}
