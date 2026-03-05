@@ -22,6 +22,8 @@ def resume():
                 "email" : request.form.get("email"),
                 "number" : request.form.get("number"),
                 "city" : request.form.get("city"),
+                "linkedin" : request.form.get("linkedin"),
+                "code" : request.form.get("codeplatform"),
                 "state" : request.form.get("state"),
                 "school" : request.form.get("schl"),
                 "schlpass" : request.form.get("schlpass"),
@@ -40,10 +42,11 @@ def resume():
                 "exp": request.form.get("exp", "").split("\n"),
                 "intern": request.form.get("intern", "").split("\n"),
                 "desc" : request.form.get("desc"),
+                "projects" : request.form.get("proj","").split("\n"),
+                "certificates" : request.form.get("cert","").split("\n")
             }
             return render_template("resume.html",data = data)
         return redirect(url_for("homepage"))
 
 # if __name__ == "__main__":
-
 #     app.run()
