@@ -22,25 +22,30 @@
                     <li>{{data.number}}</li>
                     <li>{{data.city}} ,{{data.state}}</li>
                 </ul>
+                <h2>Links</h2>
+                <ul>
+                    <li>{{data.linkedin}}</li>
+                    <li>{{data.code}}</li>
+                </ul>
                 <h2>Skills</h2>
                 
                 <h3>Technical Skills</h3>
                 <ul>
-                    {% for skill in data.techskills %}
+                    {% for skill in data.techskills if skill.strip() %}
                         <li>{{skill}}</li>
                     {% endfor %}
                 </ul>
                 
                 <h3>Soft Skills</h3>
                 <ul>
-                    {% for skill in data.softskills %}
+                    {% for skill in data.softskills if skill.strip() %}
                         <li>{{skill}}</li>
                     {% endfor %}
                 </ul>
                 
                 <h2>Languages</h2>
                 <ul>
-                    {% for lan in data.lang %}
+                    {% for lan in data.lang if lan.strip() %}
                         <li>{{lan}}</li>
                     {% endfor %}
                 </ul>
@@ -52,11 +57,11 @@
                 
                 <p>{{data.desc}}</p>
                 
-                <h2>Work Experience</h2>
+                <h2>Experience</h2>
                 {% if data.exp %}
                     <h3>Industry</h3>
                     <ul>
-                        {% for ex in data.exp %}
+                        {% for ex in data.exp if ex.strip() %}
                             <li>{{ex}}</li>
                         {% endfor %}
                     </ul>
@@ -64,7 +69,7 @@
                 {% if data.intern %}
                     <h3>Internship</h3>
                     <ul>
-                        {% for int in data.intern %}
+                        {% for int in data.intern if int.strip() %}
                             <li>{{int}}</li>
                         {% endfor %}
                     </ul>
@@ -73,24 +78,41 @@
                 
                 <h3>Secondary Education</h3>
                 <ul>
-                    <li>{{data.school}}</li>
-                    <li>{{data.schlpass}}</li>
-                    <li>{{data.schlmarks}}</li>
+                    <li>School: {{data.school}}</li>
+                    <li>Year of Passing: {{data.schlpass}}</li>
+                    <li>Marks: {{data.schlmarks}}</li>
                 </ul>
                 <h3>Higher Secondary Education</h3>
                 <ul>
-                    <li>{{data.inter}}</li>
-                    <li>{{data.stream}}</li>
-                    <li>{{data.interpass}}</li>
-                    <li>{{data.intermarks}}</li>
+                    <li>College: {{data.inter}}</li>
+                    <li>Stream: {{data.stream}}</li>
+                    <li>Year of Passing: {{data.interpass}}</li>
+                    <li>Marks: {{data.intermarks}}</li>
                 </ul>
                 <h3>Bacholore of Technology</h3>
                 <ul>
-                    <li>{{data.btech}}</li>
-                    <li>{{data.branch}}</li>
-                    <li>{{data.grdyear}}</li>
-                    <li>{{data.cgpa}}</li>
+                    <li>Institute: {{data.btech}}</li>
+                    <li>Branch: {{data.branch}}</li>
+                    <li>Graduation Year: {{data.grdyear}}</li>
+                    <li>CGPA: {{data.cgpa}}</li>
                 </ul>
+
+                {% if data.projects %}
+                    <h2>Projects</h2>
+                    <ul>
+                        {% for project in data.projects if project.strip() %}
+                            <li>{{project}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if data.certificates %}
+                    <h2>Certificates</h2>
+                    <ul>
+                        {% for certificate in data.certificates if certificate.strip() %}
+                            <li>{{certificate}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </body>
