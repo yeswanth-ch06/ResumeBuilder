@@ -7,9 +7,11 @@
     <body>
         <div class="cont">
             <div class="header">
-                <div class="photo">
-                    <img src="{{ url_for('static', filename=data.photo) }}">
-                </div>
+                {% if data.photo %}
+                    <div class="photo">
+                        <img src="{{ url_for('static', filename=data.photo) }}">
+                    </div>
+                {% endif %}
                 <div class="name">
                     <h1>{{data.name}}</h1>
                 </div>
@@ -18,27 +20,32 @@
             <div class="left">
                 <h2>Contact</h2>
                 <ul>
-                    <li>{{data.email}}</li>
-                    <li>{{data.number}}</li>
-                    <li>{{data.city}} ,{{data.state}}</li>
+                    <li>📧 {{data.email}}</li>
+                    <li>📱 {{data.number}}</li>
+                    <li>📍 {{data.city}}, {{data.state}}</li>
                 </ul>
                 <h2>Links</h2>
                 <ul>
-                    <li>{{data.linkedin}}</li>
-                    <li>{{data.code}}</li>
+                    <li>🔗 {{data.linkedin}}</li>
+                    <li>🖥️ {{data.code}}</li>
                 </ul>
-                <h2>Skills</h2>
+                <h2>Technical Skills</h2>
                 
-                <h3>Technical Skills</h3>
+                <h5>Programming Skills</h5>
                 <ul>
-                    {% for skill in data.techskills if skill.strip() %}
+                    {% for skill in data.progskills if skill.strip() %}
                         <li>{{skill}}</li>
                     {% endfor %}
                 </ul>
-                
-                <h3>Soft Skills</h3>
+                <h5>DataBase Skills</h5>
                 <ul>
-                    {% for skill in data.softskills if skill.strip() %}
+                    {% for skill in data.dbskills if skill.strip() %}
+                        <li>{{skill}}</li>
+                    {% endfor %}
+                </ul>
+                <h5>Tools</h5>
+                <ul>
+                    {% for skill in data.tools if skill.strip() %}
                         <li>{{skill}}</li>
                     {% endfor %}
                 </ul>
@@ -56,60 +63,73 @@
                 <h2>Description</h2>
                 
                 <p>{{data.desc}}</p>
-                
-                <h2>Experience</h2>
-                {% if data.exp %}
-                    <h3>Industry</h3>
-                    <ul>
-                        {% for ex in data.exp if ex.strip() %}
-                            <li>{{ex}}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                {% if data.intern %}
-                    <h3>Internship</h3>
-                    <ul>
-                        {% for int in data.intern if int.strip() %}
-                            <li>{{int}}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+
                 <h2>Academic Qualification</h2>
                 
                 <h3>Secondary Education</h3>
                 <ul>
-                    <li>School: {{data.school}}</li>
-                    <li>Year of Passing: {{data.schlpass}}</li>
-                    <li>Marks: {{data.schlmarks}}</li>
+                    <li><p>School: {{data.school}}</p></li>
+                    <li><p>Year of Passing: {{data.schlpass}}<p></li>
+                    <li><p>Marks: {{data.schlmarks}}</p></li>
                 </ul>
                 <h3>Higher Secondary Education</h3>
                 <ul>
-                    <li>College: {{data.inter}}</li>
-                    <li>Stream: {{data.stream}}</li>
-                    <li>Year of Passing: {{data.interpass}}</li>
-                    <li>Marks: {{data.intermarks}}</li>
+                    <li><p>College: {{data.inter}}</p></li>
+                    <li><p>Stream: {{data.stream}}</p></li>
+                    <li><p>Year of Passing: {{data.interpass}}</p></li>
+                    <li><p>Marks: {{data.intermarks}}</p></li>
                 </ul>
-                <h3>Bacholore of Technology</h3>
+                <h3>Graduation</h3>
                 <ul>
-                    <li>Institute: {{data.btech}}</li>
-                    <li>Branch: {{data.branch}}</li>
-                    <li>Graduation Year: {{data.grdyear}}</li>
-                    <li>CGPA: {{data.cgpa}}</li>
+                    <li><p>Institute: {{data.btech}}</p></li>
+                    <li><p>Branch: {{data.branch}}</p></li>
+                    <li><p>Graduation Year: {{data.grdyear}}</p></li>
+                    <li><p>CGPA: {{data.cgpa}}</p></li>
                 </ul>
 
-                {% if data.projects %}
-                    <h2>Projects</h2>
+                <h2>Experience</h2>
+                {% if exps %}
+                    <h3>Industry</h3>
                     <ul>
-                        {% for project in data.projects if project.strip() %}
-                            <li>{{project}}</li>
+                        {% for ex,exd in exps %}
+                            <li>
+                                <b>{{ex}}</b>
+                                <p>{{exd}}</p>
+                            </li>
                         {% endfor %}
                     </ul>
                 {% endif %}
-                {% if data.certificates %}
+                {% if intern %}
+                    <h3>Internship</h3>
+                    <ul>
+                        {% for int,intd in intern %}
+                            <li>
+                                <b>{{int}}</b>
+                                <p>{{intd}}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if projs %}
+                    <h2>Projects</h2>
+                    <ul>
+                        {% for proj,projd in projs %}
+                            <li>
+                                <b>{{proj}}</b>
+                                <p>{{projd}}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if certs%}
                     <h2>Certificates</h2>
                     <ul>
-                        {% for certificate in data.certificates if certificate.strip() %}
-                            <li>{{certificate}}</li>
+                        {% for cert,certd in certs %}
+                            <li>
+                                <b>{{cert}}</b>
+                                <p>{{certd}}</p>
+                            </li>
                         {% endfor %}
                     </ul>
                 {% endif %}
