@@ -1,140 +1,210 @@
+<!DOCTYPE html>
 <html>
-    <head>
-                <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>home page</title>
-    </head>
-    <body>
-        <h1>Home Page</h1>
-            <form action="{{ url_for('resume') }}" method="POST" enctype="multipart/form-data">
-                <div class="profile">
-                <table>
-                    <tr>
-                        <th>Profilr Picture</th>
-                        <td><input type="file" name="photo" id="photo" accept=".jpg,.jpeg,.png" required></td>
-                    </tr>
-                    <tr>
-                        <th>Name:</th>
-                        <td><input type="text" name="name" id="name" required></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="personal_info">
-                <table>
-                    <tr>
-                        <th>Email:</th>
-                        <td><input type="email" name="email" id="email" required></td>
-                    </tr>
-                    <tr>
-                        <th>Number:</th>
-                        <td><input type="number" name="number" id="number" pattern="[6-9]{1}[0-9]{9}" maxlength="10" required></td>
-                    </tr>
-                    <tr>
-                        <th>City:</th>
-                        <td><input type="text" name="city" id="city" required></td>
-                    </tr>
-                        <tr>
-                        <th>State:</th>
-                        <td><input type="text" name="state" id="state" required></td>
-                    </tr>
-                    <tr>
-                        <th>Links:</th>
-                        <td><input type="text" name="linkedin" id="linkedin"></td>
-                        <td><input type="text" name="codeplatform" id="codeplatform"></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="academic_info">
-                <table>
-                    <tr>
-                        <th>School:</th>
-                        <td><input type="text" name="schl" id="schl"></td>
-                    </tr>
-                    <tr>
-                        <th>Passing Year:</th>
-                        <td><input type="number" name="schlpass" id="schlpass" min="1926" max="2099"></td>
-                        <th>Percentage/Marks:</th>
-                        <td><input type="number" name="schlmarks" id="schlmarks"></td>
-                    </tr>
-                    <tr>
-                        <th>Inter/Diploma:</th>
-                        <td><input type="text" name="inter" id="inter"></td>
-                        <th>Stream:</th>
-                        <td><input type="text" name="stream" id="stream"></td>
-                    </tr>
-                    <tr>
-                        <th>Passing Year</th>
-                        <td><input type="number" name="interpass" id="interpass" min="1926" max="2099"></td>
-                        <th>Pecentage/Marks:</th>
-                        <td><input type="text" name="intermarks" id="intermarks"></td>
-                    </tr>
-                    <tr>
-                        <th>Btech:</th>
-                        <td><input type="text" name="clgname" id="clgname" required></td>
-                        <th>Branch:</th>
-                        <td><input type="text" name="branch" id="branch" required></td>
-                    </tr>
-                    <tr>
-                        <th>Graduaion Year:</th>
-                        <td><input type="number" name="grdyear" id="grdyear" min="1926" max="2099" required></td>
-                        <th>CGPA:</th>
-                        <td><input type="number" name="cgpa" id="cgpa" step="0.01" min="0.00" max="10.00" required></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="Skills">
-                <table>
-                    <tr>
-                        <th>Technical Skills:</th>
-                        <td><textarea name="techskills" id="techskills"></textarea></td>
-                    </tr>
-                    <tr>
-                        <th>Soft Skills:</th>
-                        <td><textarea name="softskills" id="softskills"></textarea></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="languages">
-                <table>
-                    <tr>
-                        <th>Languages:</th>
-                        <td><textarea name="lang" id="lang"></textarea></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="experience">
-                <table>
-                    <tr>
-                        <th>Experience:</th>
-                        <td><textarea name="exp" id="exp"></textarea></td>
-                    </tr>
-                    <tr>
-                        <th>Internships:</th>
-                        <td><textarea name="intern" id="intern"></textarea></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="profile_desc">
-                <table>
-                    <tr>
-                        <th>Description:</th>
-                        <td><textarea name="desc" id="desc"></textarea></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="proj_cert">
-                <table>
-                    <tr>
-                        <th>Project followed by Description:</th>
-                        <td><textarea name="proj" id="proj"></textarea></td>
-                    </tr>
-                    <tr>
-                        <th>Certification followed by Description</th>
-                        <td><textarea name="cert" id="cert"></textarea></td>
-                    </tr>
-                </table>
-            </div>
-            <button type="submit">Generate</button>
-        </form>
-    </body>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Resume</title>
+</head>
+
+<body>
+
+<h1>Resume Builder</h1>
+
+<form action="{{ url_for('resume') }}" method="POST" enctype="multipart/form-data">
+
+    <!-- Profile -->
+    <div class="section">
+        <h2>Profile</h2>
+
+        <label>Profile Picture</label>
+        <input type="file" name="photo" accept=".jpg,.jpeg,.png">
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+    </div>
+
+    <!-- Personal Info -->
+    <div class="section">
+        <h2>Personal Information</h2>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Phone</label>
+        <input type="text" name="number" pattern="[6-9]{1}[0-9]{9}" required>
+
+        <label>City</label>
+        <input type="text" name="city" required>
+
+        <label>State</label>
+        <input type="text" name="state" required>
+
+        <label>LinkedIn</label>
+        <input type="text" name="linkedin">
+
+        <label>Code Platform</label>
+        <input type="text" name="codeplatform">
+    </div>
+
+    <!-- Academic -->
+    <div class="section">
+        <h2>Academic Details</h2>
+
+        <label>School</label>
+        <input type="text" name="schl">
+
+        <label>School Passing Year</label>
+        <input type="number" name="schlpass">
+
+        <label>School Marks</label>
+        <input type="text" name="schlmarks">
+
+        <label>Intermediate / Diploma</label>
+        <input type="text" name="inter">
+
+        <label>Stream</label>
+        <input type="text" name="stream">
+
+        <label>Inter Passing Year</label>
+        <input type="number" name="interpass">
+
+        <label>Inter Marks</label>
+        <input type="text" name="intermarks">
+
+        <label>College</label>
+        <input type="text" name="clgname" required>
+
+        <label>Branch</label>
+        <input type="text" name="branch" required>
+
+        <label>Graduation Year</label>
+        <input type="number" name="grdyear" required>
+
+        <label>CGPA</label>
+        <input type="number" name="cgpa" step="0.01" required>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+        <h2>Technical Skills</h2>
+
+        <label>Programming</label>
+        <textarea name="progskills"></textarea>
+
+        <label>Database</label>
+        <textarea name="dbskills"></textarea>
+
+        <label>Tools</label>
+        <textarea name="tools"></textarea>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+        <h2>Languages</h2>
+        <textarea name="lang"></textarea>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+        <h2>Experience</h2>
+
+        <label>Experience 1</label>
+        <input type="text" name="exp1">
+        <textarea name="expdesc1"></textarea>
+
+        <label>Experience 2</label>
+        <input type="text" name="exp2">
+        <textarea name="expdesc2"></textarea>
+
+        <label>Experience 3</label>
+        <input type="text" name="exp3">
+        <textarea name="expdesc3"></textarea>
+
+        <label>Experience 4</label>
+        <input type="text" name="exp4">
+        <textarea name="expdesc4"></textarea>
+    </div>
+
+    <!-- Internships -->
+    <div class="section">
+        <h2>Internships</h2>
+
+        <label>Internship 1</label>
+        <input type="text" name="intern1">
+        <textarea name="interndesc1"></textarea>
+
+        <label>Internship 2</label>
+        <input type="text" name="intern2">
+        <textarea name="interndesc2"></textarea>
+
+        <label>Internship 3</label>
+        <input type="text" name="intern3">
+        <textarea name="interndesc3"></textarea>
+
+        <label>Internship 4</label>
+        <input type="text" name="intern4">
+        <textarea name="interndesc4"></textarea>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+        <h2>Projects</h2>
+
+        <label>Project 1</label>
+        <input type="text" name="proj1">
+        <textarea name="projdesc1"></textarea>
+
+        <label>Project 2</label>
+        <input type="text" name="proj2">
+        <textarea name="projdesc2"></textarea>
+        
+        <label>Project 3</label>
+        <input type="text" name="proj3">
+        <textarea name="projdesc3"></textarea>
+
+        <label>Project 4</label>
+        <input type="text" name="proj4">
+        <textarea name="projdesc4"></textarea>
+    </div>
+
+    <!-- Certificates -->
+    <div class="section">
+        <h2>Certificates</h2>
+
+        <label>Certificate 1</label>
+        <input type="text" name="cert1">
+        <textarea name="certdesc1"></textarea>
+
+        <label>Certificate 2</label>
+        <input type="text" name="cert2">
+        <textarea name="certdesc2"></textarea>
+
+        <label>Certificate 3</label>
+        <input type="text" name="cert3">
+        <textarea name="certdesc3"></textarea>
+
+        <label>Certificate 4</label>
+        <input type="text" name="cert4">
+        <textarea name="certdesc4"></textarea>
+
+        <label>Certificate 5</label>
+        <input type="text" name="cert5">
+        <textarea name="certdesc5"></textarea>
+
+        <label>Certificate 6</label>
+        <input type="text" name="cert6">
+        <textarea name="certdesc6"></textarea>
+    </div>
+
+    <!-- Description -->
+    <div class="section">
+        <h2>Profile Description</h2>
+        <textarea name="desc"></textarea>
+    </div>
+
+    <button type="submit">Generate Resume</button>
+
+</form>
+
+</body>
 </html>
