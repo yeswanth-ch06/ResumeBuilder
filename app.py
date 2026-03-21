@@ -12,8 +12,6 @@ def resume():
         if request.method == "POST":
             exp = []
             expdesc = []
-            intern = []
-            interndesc = []
 
             proj = []
             projdesc = []
@@ -25,10 +23,6 @@ def resume():
                     exp.append(request.form.get(f"exp{i}"))
                 if request.form.get(f"expdesc{i}"):
                     expdesc.append(request.form.get(f"expdesc{i}"))
-                if request.form.get(f"intern{i}"):
-                    intern.append(request.form.get(f"intern{i}"))
-                if request.form.get(f"interndesc{i}"):
-                    interndesc.append(request.form.get(f"interndesc{i}"))
                 if request.form.get(f"proj{i}"):
                     proj.append(request.form.get(f"proj{i}"))
                 if request.form.get(f"projdesc{i}"):
@@ -55,16 +49,9 @@ def resume():
                 "linkedin" : request.form.get("linkedin"),
                 "code" : request.form.get("codeplatform"),
                 "state" : request.form.get("state"),
-                "school" : request.form.get("schl"),
-                "schlpass" : request.form.get("schlpass"),
-                "schlmarks" : request.form.get("schlmarks"),
-                "inter" : request.form.get("inter"),
-                "stream" : request.form.get("stream"),
-                "interpass" : request.form.get("interpass"),
-                "intermarks" : request.form.get("intermarks"),
                 "btech" : request.form.get("clgname"),
                 "branch" : request.form.get("branch"),
-                "grdyear" : request.form.get("grdyear"),
+                "grdyear" : int(request.form.get("grdyear")),
                 "cgpa" : request.form.get("cgpa"),
                 "lang": request.form.get("lang", "").split("\n"),
                 "desc" : request.form.get("desc"),
@@ -72,8 +59,9 @@ def resume():
                 "dbskills": request.form.get("dbskills", "").split("\n"),
                 "tools": request.form.get("tools", "").split("\n"),
             }                
-            return render_template("resume.html",data = data,exps = zip(exp,expdesc), intern = zip(intern,interndesc), projs = zip(proj,projdesc), certs = zip(cert,certdesc))
+            return render_template("resume.html",data = data,exps = zip(exp,expdesc), projs = zip(proj,projdesc), certs = zip(cert,certdesc))
+            
         return redirect(url_for("homepage"))
 
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
