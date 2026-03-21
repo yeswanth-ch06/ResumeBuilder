@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homepage</title>
+    <title>Photo Resume</title>
 </head>
 
 <body>
@@ -50,27 +50,6 @@
     <div class="section">
         <h2>Academic Details</h2>
 
-        <label>School</label>
-        <input type="text" name="schl">
-
-        <label>School Passing Year</label>
-        <input type="number" name="schlpass">
-
-        <label>School Marks</label>
-        <input type="text" name="schlmarks">
-
-        <label>Intermediate / Diploma</label>
-        <input type="text" name="inter">
-
-        <label>Stream</label>
-        <input type="text" name="stream">
-
-        <label>Inter Passing Year</label>
-        <input type="number" name="interpass">
-
-        <label>Inter Marks</label>
-        <input type="text" name="intermarks">
-
         <label>College</label>
         <input type="text" name="clgname" required>
 
@@ -78,7 +57,7 @@
         <input type="text" name="branch" required>
 
         <label>Graduation Year</label>
-        <input type="number" name="grdyear" required>
+        <input type="number" name="grdyear" min="2000" max="2099" required>
 
         <label>CGPA</label>
         <input type="number" name="cgpa" step="0.01" required>
@@ -123,27 +102,6 @@
         <label>Experience 4</label>
         <input type="text" name="exp4">
         <textarea name="expdesc4"></textarea>
-    </div>
-
-    <!-- Internships -->
-    <div class="section">
-        <h2>Internships</h2>
-
-        <label>Internship 1</label>
-        <input type="text" name="intern1">
-        <textarea name="interndesc1"></textarea>
-
-        <label>Internship 2</label>
-        <input type="text" name="intern2">
-        <textarea name="interndesc2"></textarea>
-
-        <label>Internship 3</label>
-        <input type="text" name="intern3">
-        <textarea name="interndesc3"></textarea>
-
-        <label>Internship 4</label>
-        <input type="text" name="intern4">
-        <textarea name="interndesc4"></textarea>
     </div>
 
     <!-- Projects -->
