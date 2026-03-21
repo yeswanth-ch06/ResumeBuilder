@@ -65,47 +65,19 @@
                 <p>{{data.desc}}</p>
 
                 <h2>Academic Qualification</h2>
-                
-                <h3>Secondary Education</h3>
                 <ul>
-                    <li><p>School: {{data.school}}</p></li>
-                    <li><p>Year of Passing: {{data.schlpass}}<p></li>
-                    <li><p>Marks: {{data.schlmarks}}</p></li>
-                </ul>
-                <h3>Higher Secondary Education</h3>
-                <ul>
-                    <li><p>College: {{data.inter}}</p></li>
-                    <li><p>Stream: {{data.stream}}</p></li>
-                    <li><p>Year of Passing: {{data.interpass}}</p></li>
-                    <li><p>Marks: {{data.intermarks}}</p></li>
-                </ul>
-                <h3>Graduation</h3>
-                <ul>
-                    <li><p>Institute: {{data.btech}}</p></li>
-                    <li><p>Branch: {{data.branch}}</p></li>
-                    <li><p>Graduation Year: {{data.grdyear}}</p></li>
-                    <li><p>CGPA: {{data.cgpa}}</p></li>
+                    <li><h3>{{data.btech}}</h3>
+                    Bachelor Of Technology (B-Tech) in {{data.branch}} {{data.grdyear-4}} - {{data.grdyear}}
+                    <p>Dedicated and detail-oriented B.Tech student in {{data.branch}} with a CGPA of {{data.cgpa}}, strong analytical skills, and practical project experience. Seeking a challenging role to leverage technical expertise and deliver impactful solutions.</p></li>
                 </ul>
 
                 <h2>Experience</h2>
                 {% if exps %}
-                    <h3>Industry</h3>
                     <ul>
                         {% for ex,exd in exps %}
                             <li>
                                 <b>{{ex}}</b>
                                 <p>{{exd}}</p>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                {% if intern %}
-                    <h3>Internship</h3>
-                    <ul>
-                        {% for int,intd in intern %}
-                            <li>
-                                <b>{{int}}</b>
-                                <p>{{intd}}</p>
                             </li>
                         {% endfor %}
                     </ul>
