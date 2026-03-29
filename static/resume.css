@@ -1,185 +1,231 @@
 /* =========================
+   A4 PAGE SETUP
+========================= */
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+/* =========================
    RESET
 ========================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 /* =========================
    BODY
 ========================= */
-body{
-    background:#f8e9e9;
-    padding:20px;
+body {
+  background: #f8e9e9;
+  padding: 20px;
 }
 
 /* =========================
-   MAIN CONTAINER (A4 STYLE)
+   MAIN CONTAINER (A4)
 ========================= */
-.cont{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:stretch;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+.cont {
+  width: 210mm;
+  min-height: 297mm;
+  margin: auto;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================
    HEADER
 ========================= */
-.header{
-    width:100%;
-    height: 100px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    padding:20px;
-    border-bottom:1px solid #ddd;
-    background:#1e293b;
+.header {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background: #1e293b;
 }
 
-.photo img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    object-fit:cover;
-    border: 4px solid white;
+.photo img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
 }
 
-.name h1{
-    font-size:30px;
-    color:white;
+.name h1 {
+  font-size: 26px;
+  color: white;
 }
 
 /* =========================
    LEFT SIDEBAR
 ========================= */
-.left{
-    flex:1;
-    min-width:250px;
-    max-width: 260px;
-    padding:20px;
-    background:#f1f5f9;
-    border-right:1px solid #ccc;
+.left {
+  flex: 1;
+  min-width: 240px;
+  max-width: 260px;
+  padding: 15px;
+  background: #f1f5f9;
+  border-right: 1px solid #ccc;
 
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.left h2{
-    font-size:17px;
-    color:#2c3e50;
-    margin-top:10px;
-    border-bottom:1px solid #ccc;
-    padding-bottom:5px;
+.left h2 {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-top: 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
 }
 
-/* Remove bullets for Contact & Links */
 .left h2:nth-of-type(1) + ul,
-.left h2:nth-of-type(2) + ul{
-    list-style:none;
-    padding-left:0;
+.left h2:nth-of-type(2) + ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Normal bullets for others */
-.left ul{
-    padding-left:18px;
+.left ul {
+  padding-left: 14px;
 }
 
-.left li{
-    font-size:14px;
-    margin-bottom:6px;
+.left li {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.left li p {
+  font-size: 11px;
+  display: inline;
+  margin-right: 5px;
 }
 
 /* =========================
    RIGHT CONTENT
 ========================= */
-.right{
-    flex:2;
-    padding:20px;
+.right {
+  flex: 2;
+  padding: 15px;
 }
 
-.right h2{
-    font-size:18px;
-    color:#2c3e50;
-    margin:15px 0 10px;
-    border-bottom:1px solid #ccc;
-    padding-bottom:5px;
+.right h2 {
+  font-size: 17px;
+  color: #2c3e50;
+  margin: 12px 0 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
 }
 
-.right h3{
-    font-size:15px;
-    margin: 10px 0 10px;
-    color:#333;
-    padding-bottom:0px;
-
+.right h3 {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #333;
 }
 
-.right ul{
-    padding-left:18px;
-    margin-bottom:10px;
+.right ul {
+  padding-left: 16px;
+  margin-bottom: 8px;
 }
 
-.right li{
-    margin-bottom:0px;
-    font-size: 14;
+.right li {
+  margin-bottom: 4px;
+  font-size: 13px; /* FIXED */
 }
 
-.right p{
-    font-size:14px;
-    margin:5px 0;
-    line-height:1.5;
-    color:#444;
-}
-.right li p{
-    font-size:14px;
-    margin:5px 0;
-    line-height:1.2;
-    color:#444;
+.right p {
+  font-size: 13px;
+  margin: 4px 0;
+  line-height: 1.4;
+  color: #444;
 }
 
-/* =========================
-   BOLD TITLES (Projects etc.)
-========================= */
-.right li b{
-    display:block;
-    font-size:15px;
-    color:#000;
+.right li p {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.desc{
+    padding-left: 15px;
 }
 
 /* =========================
-   LINKS STYLE
+   BOLD TITLES
 ========================= */
-a{
-    color:#e57373;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
+.right li b {
+  display: block;
+  font-size: 14px;
+  color: #000;
 }
 
 /* =========================
-   RESPONSIVE
+   LINKS
 ========================= */
-@media(max-width:768px){
-    .left, .right{
-        width:100%;
-        flex:unset;
-    }
+a {
+  color: #e57373;
+  text-decoration: none;
+}
 
-    .header{
-        flex-direction:column;
-        text-align:center;
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    .photo img{
-        margin-bottom:10px;
-    }
+/* =========================
+   PRINT STYLES
+========================= */
+@media print {
+  body {
+    background: none;
+    padding: 0;
+  }
+
+  .cont {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .header,
+  .left,
+  .right {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+/* =========================
+   RESPONSIVE (SCREEN ONLY)
+========================= */
+@media (max-width: 768px) {
+  .cont {
+    width: 100%;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    flex: unset;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo img {
+    margin-bottom: 10px;
+  }
 }
