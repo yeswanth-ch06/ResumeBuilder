@@ -33,15 +33,15 @@ def resume():
                     cert.append(request.form.get(f"cert{i}"))
                 if request.form.get(f"certdesc{i}"):
                     certdesc.append(request.form.get(f"certdesc{i}"))
-            photo = request.files.get("photo")
-            if photo:
-                photo_path = photo.filename
-                photo.save("static/"+ photo_path)
-            else:
-                photo_path = ""
+            # photo = request.files.get("photo")
+            # if photo:
+            #     photo_path = photo.filename
+            #     photo.save("static/"+ photo_path)
+            # else:
+            #     photo_path = ""
 
             data = {
-                "photo" : photo_path,
+                # "photo" : photo_path,
                 "name" : request.form.get("name"),
                 "email" : request.form.get("email"),
                 "number" : request.form.get("number"),
