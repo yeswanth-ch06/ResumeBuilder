@@ -44,6 +44,7 @@ body {
 .header {
   width: 100%;
   min-height: 100px;
+  max-height: 150px
   display: flex;
   align-items: center;
   gap: 20px;
