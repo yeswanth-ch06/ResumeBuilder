@@ -72,7 +72,7 @@
                 </ul>
 
                 <h2>Experience</h2>
-                {% if exps %}
+                {% if exps  | length>0%}
                     <ul>
                         {% for ex,exd in exps %}
                             <li>
@@ -83,7 +83,7 @@
                     </ul>
                 {% endif %}
 
-                {% if projs %}
+                {% if projs | length>0 %}
                     <h2>Projects</h2>
                     <ul>
                         {% for proj,projd in projs %}
@@ -94,7 +94,7 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                {% if certs%}
+                {% if certs | length>0%}
                     <h2>Certificates</h2>
                     <ul>
                         {% for cert,certd in certs %}
