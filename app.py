@@ -59,7 +59,7 @@ def resume():
                 "dbskills": request.form.get("dbskills", "").split("\n"),
                 "tools": request.form.get("tools", "").split("\n"),
             }                
-            return render_template("resume.html",data = data,exps = zip(exp,expdesc), projs = zip(proj,projdesc), certs = zip(cert,certdesc))
+            return render_template("resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
             
         return redirect(url_for("homepage"))
 
