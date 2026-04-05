@@ -59,7 +59,10 @@ def resume():
                 "dbskills": request.form.get("dbskills", "").split("\n"),
                 "tools": request.form.get("tools", "").split("\n"),
             }                
-            return render_template("resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
+            if layout = "three":
+                return render_template("three_resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
+            else:
+                return render_template("one_resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
             
         return redirect(url_for("homepage"))
 
