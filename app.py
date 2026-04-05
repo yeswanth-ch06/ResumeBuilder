@@ -61,7 +61,7 @@ def resume():
                 "tools": request.form.get("tools", "").split("\n"),
             }           
 
-            return render_template("three_resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
+            return render_template("resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
             # if layout = "three":
             #     return render_template("three_resume.html",data = data,exps = list(zip(exp,expdesc)), projs = list(zip(proj,projdesc)), certs = list(zip(cert,certdesc)))
             # else:
