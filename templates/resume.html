@@ -26,9 +26,15 @@
                 </ul>
                 <h2>Links</h2>
                 <ul>
-                    <li><p>🔗</p>{{data.linkedin}}</li>
-                    <li><p>🖥️</p>{{data.code}}</li>
-                    <li><p>🗂️</p>{{data.git}}</li>
+                    {% if data.linkedin | length>0 %}
+                        <li><p>🔗</p>{{data.linkedin}}</li>
+                    {% endif %}
+                    {% if data.code | length>0 %}
+                        <li><p>🖥️</p>{{data.code}}</li>
+                    {% endif %}
+                    {% if data.git | length>0 %}
+                        <li><p>🗂️</p>{{data.git}}</li>
+                    {% endif %}
                 </ul>
                 <h2>Technical Skills</h2>
                 
