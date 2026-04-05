@@ -48,6 +48,7 @@ def resume():
                 "city" : request.form.get("city"),
                 "linkedin" : request.form.get("linkedin"),
                 "code" : request.form.get("codeplatform"),
+                "git" : request.form.get("github"),
                 "state" : request.form.get("state"),
                 "btech" : request.form.get("clgname"),
                 "branch" : request.form.get("branch"),
