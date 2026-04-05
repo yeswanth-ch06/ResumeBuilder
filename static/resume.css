@@ -44,20 +44,12 @@ body {
 .header {
   width: 100%;
   min-height: 100px;
-  max-height: 100px
+  max-height: 100px;
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 15px;
   background: #1e293b;
-}
-
-.photo img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
 }
 
 .name h1 {
