@@ -52,6 +52,13 @@ body {
   margin-top: 99px;
 }
 
+.left li::marker,
+.right li::marker {
+  content: "• ";
+  font-weight: bold;
+  color: black;
+}
+
 .left {
   flex: 1;
   min-width: 240px;
