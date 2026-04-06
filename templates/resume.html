@@ -83,7 +83,11 @@
                         {% for ex,exd in exps %}
                             <li>
                                 <b>{{ex}}</b>
-                                <p>{{exd}}</p>
+                                <ul>
+                                    {% for d in exd.split("\n") %}
+                                        <li><p>{{d}}</p></li>
+                                    {% endfor %}
+                                </ul>
                             </li>
                         {% endfor %}
                     </ul>
@@ -95,7 +99,11 @@
                         {% for proj,projd in projs %}
                             <li>
                                 <b>{{proj}}</b>
-                                <p>{{projd}}</p>
+                                <ul>
+                                    {% for d in projd.split("\n") %}
+                                        <li><p>{{d}}</p></li>
+                                    {% endfor %}
+                                </ul>
                             </li>
                         {% endfor %}
                     </ul>
@@ -106,7 +114,11 @@
                         {% for cert,certd in certs %}
                             <li>
                                 <b>{{cert}}</b>
-                                <p>{{certd}}</p>
+                                <ul>
+                                    {% for d in certd.split("\n") | length>0 %}
+                                        <li><p>{{d}}</p></li>
+                                    {% endfor %}
+                                </ul>
                             </li>
                         {% endfor %}
                     </ul>
