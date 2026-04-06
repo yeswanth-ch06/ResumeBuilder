@@ -7,11 +7,6 @@
     <body>
         <div class="cont">
             <div class="header">
-                <!-- {% if data.photo %}
-                    <div class="photo">
-                        <img src="{{ url_for('static', filename=data.photo) }}">
-                    </div>
-                {% endif %} -->
                 <div class="name">
                     <h1>{{data.name}}</h1>
                 </div>
@@ -115,7 +110,7 @@
                             <li>
                                 <b>{{cert}}</b>
                                 <ul>
-                                    {% for d in certd.split("\n") | length>0 %}
+                                    {% for d in certd.split("\n") %}
                                         <li><p>{{d}}</p></li>
                                     {% endfor %}
                                 </ul>
