@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+</head>
+
+<body>
+
+<h1>Resume Builder</h1>
+
+<form action="{{ url_for('resume') }}" method="POST" enctype="multipart/form-data">
+
+    <!-- Profile -->
+    <div class="section">
+        <h2>Profile</h2>
+
+        <!-- <label>Profile Picture</label>
+        <input type="file" name="photo" accept=".jpg,.jpeg,.png"> -->
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+    </div>
+
+    <!-- Personal Info -->
+    <div class="section">
+        <h2>Personal Information</h2>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Phone</label>
+        <input type="text" name="number" pattern="[6-9]{1}[0-9]{9}" required>
+
+        <label>City</label>
+        <input type="text" name="city" required>
+
+        <label>State</label>
+        <input type="text" name="state" required>
+
+        <label>LinkedIn Profile</label>
+        <input type="text" name="linkedin">
+
+        <label>Code Platform</label>
+        <input type="text" name="codeplatform">
+
+        <label>GitHub Profile</label>
+        <input type="text" name="github">
+    </div>
+
+    <!-- Academic -->
+    <div class="section">
+        <h2>Academic Details</h2>
+
+        <label>College</label>
+        <input type="text" name="clgname" required>
+
+        <label>Branch</label>
+        <input type="text" name="branch" required>
+
+        <label>Graduation Year</label>
+        <input type="number" name="grdyear" min="2000" max="2099" required>
+
+        <label>CGPA</label>
+        <input type="number" name="cgpa" step="0.01" required>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+        <h2>Technical Skills</h2>
+
+        <label>Programming</label>
+        <textarea name="progskills"></textarea>
+
+        <label>Database</label>
+        <textarea name="dbskills"></textarea>
+
+        <label>Data Skills</label>
+        <textarea name="dtskills"></textarea>
+
+        <label>Tools</label>
+        <textarea name="tools"></textarea>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+        <h2>Languages</h2>
+        <textarea name="lang"></textarea>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+        <h2>Experience</h2>
+
+        <label>Experience 1</label>
+        <input type="text" name="exp1">
+        <textarea name="expdesc1"></textarea>
+
+        <label>Experience 2</label>
+        <input type="text" name="exp2">
+        <textarea name="expdesc2"></textarea>
+
+        <label>Experience 3</label>
+        <input type="text" name="exp3">
+        <textarea name="expdesc3"></textarea>
+
+        <label>Experience 4</label>
+        <input type="text" name="exp4">
+        <textarea name="expdesc4"></textarea>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+        <h2>Projects</h2>
+
+        <label>Project 1</label>
+        <input type="text" name="proj1">
+        <textarea name="projdesc1"></textarea>
+
+        <label>Project 2</label>
+        <input type="text" name="proj2">
+        <textarea name="projdesc2"></textarea>
+        
+        <label>Project 3</label>
+        <input type="text" name="proj3">
+        <textarea name="projdesc3"></textarea>
+
+        <label>Project 4</label>
+        <input type="text" name="proj4">
+        <textarea name="projdesc4"></textarea>
+    </div>
+
+    <!-- Certificates -->
+    <div class="section">
+        <h2>Certificates</h2>
+
+        <label>Certificate 1</label>
+        <input type="text" name="cert1">
+        <textarea name="certdesc1"></textarea>
+
+        <label>Certificate 2</label>
+        <input type="text" name="cert2">
+        <textarea name="certdesc2"></textarea>
+
+        <label>Certificate 3</label>
+        <input type="text" name="cert3">
+        <textarea name="certdesc3"></textarea>
+
+        <label>Certificate 4</label>
+        <input type="text" name="cert4">
+        <textarea name="certdesc4"></textarea>
+
+        <label>Certificate 5</label>
+        <input type="text" name="cert5">
+        <textarea name="certdesc5"></textarea>
+
+        <label>Certificate 6</label>
+        <input type="text" name="cert6">
+        <textarea name="certdesc6"></textarea>
+    </div>
+
+    <!-- Description -->
+    <div class="section">
+        <h2>Profile Description</h2>
+        <textarea name="desc"></textarea>
+    </div>
+
+    <button type="submit" name="layout" value="single" >Single Layout Resume</button>
+    <button type="submit" name="layout" value="three" >Three Layout Resume</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+body {
+  background: none;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.3;
+  font-size: 13px;
+}
+
+.main {
+  width: 210mm;
+  margin: 50px auto 0;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #605e5e; /* matches your header color */
+}
+
+/* Contact line */
+.details {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Lists */
+ul {
+  padding-left: 18px;
+  margin-bottom: 5px;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+/* Paragraph inside list */
+li p {
+  margin: 2px 0;
+  line-height: 1.3;
+}
+
+li ::marker{
+  content: "• ";
+  font-weight: bold;
+  color: black;
+}

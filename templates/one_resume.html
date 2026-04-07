@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='one_resume.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resume</title>
+    </head>
+    <body>
+        <div class="main">
+            <h2>{{data.name}}</h2>
+            <p class="details">{{data.number}} | {{data.email}} | {{data.linkedin}} | {{data.code}} | {{data.git}}</p>
+            <h3>Career Objective</h3>
+            <p>{{data.desc}}</p>
+            <h3>Education</h3>
+            <ul>
+                <li>{{data.btech}}
+                    Bachelor Of Technology (B-Tech) in {{data.branch}} {{data.grdyear-4}} - {{data.grdyear}}
+                    <p>Dedicated and detail-oriented B.Tech student in {{data.branch}} with a CGPA of {{data.cgpa}}, strong analytical skills, and practical project experience. Seeking a challenging role to leverage technical expertise and deliver impactful solutions.</p>
+                </li>
+            </ul>
+            <h3>Technical Skills</h3>
+            <ul>
+                <li><b>programming</b>{{", ".join(data.progskills)}}</li>
+                <li><b>DataBase: </b>{{", ".join(data.dbskills)}}</li>
+                <li><b>Data Skills: </b>{{", ".join(data.dtskills)}}</li>
+                <li><b>Tools: </b>{{", ".join(data.tools)}}</li>
+            </ul>
+            {% if exps | length>0 %}
+                <h3>Experience</h3>
+                <ul>
+                    {% for ex,exd in exps %}
+                        <li><b>{{ex}}</b>
+                            <ul>
+                                {% for d in exd.split("\n") %}
+                                    <li><p>{{d}}</p></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if projs | length>0 %}
+                <h3>Projects</h3>
+                <ul>
+                    {% for prj,prjd in projs %}
+                        <li><b>{{prj}}</b>
+                            <ul>
+                                {% for d in prjd.split("\n") %}
+                                    <li><p>{{d}}</p></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if certs | length>0 %}
+                <h3>Certificates</h3>
+                <ul>
+                    {% for crt,crtd in certs %}
+                        <li><b>{{crt}}</b>
+                            <ul>
+                                {% for d in crtd.split("\n") %}
+                                    <li><p>{{d}}</p></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </body>
+</html>
