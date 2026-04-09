@@ -52,6 +52,7 @@ def resume():
                 "dbskills" : request.form.get("dbskills", "").split("\n"),
                 "dtskills" : request.form.get("dtskills","").split("\n"),
                 "tools": request.form.get("tools", "").split("\n"),
+                "os_skills": request.form.get("osk","").split("\n")
             }           
 
             layout = request.form.get("layout")
