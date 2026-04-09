@@ -51,7 +51,12 @@
                         <li>{{skill}}</li>
                     {% endfor %}
                 </ul>
-                
+                <ul>
+                <h5>Operating Systems</h5>
+                    {% for skill in data.os_skills if skill.strip() %}
+                        <li>{{skill}}</li>
+                    {% endfor %}
+                </ul>
                 <h2>Languages</h2>
                 <ul>
                     {% for lan in data.lang if lan.strip() %}
