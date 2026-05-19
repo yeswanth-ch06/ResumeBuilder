@@ -119,18 +119,23 @@
         <label>Project 1</label>
         <input type="text" name="proj1">
         <textarea name="projdesc1"></textarea>
+        <button type="button" onclick="generateDescription()">Generate Description</button>
 
         <label>Project 2</label>
         <input type="text" name="proj2">
         <textarea name="projdesc2"></textarea>
+        <button type="button" onclick="generateDescription()">Generate Description</button>
         
         <label>Project 3</label>
         <input type="text" name="proj3">
         <textarea name="projdesc3"></textarea>
+        <button type="button" onclick="generateDescription()">Generate Description</button>
 
         <label>Project 4</label>
         <input type="text" name="proj4">
         <textarea name="projdesc4"></textarea>
+        <button type="button" onclick="generateDescription()">Generate Description</button>
+        
     </div>
 
     <!-- Certificates -->
@@ -172,6 +177,23 @@
     <button type="submit" name="layout" value="three" >Three Layout Resume</button>
 
 </form>
+<script>
+async function generateDescription() {
 
+    let project = document.getElementById("project_name").value;
+
+    let response = await fetch("/generate_project", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "project=" + encodeURIComponent(project)
+    });
+
+    let data = await response.json();
+
+    document.getElementById("project_desc").value = data.description;
+}
+</script>
 </body>
 </html>
