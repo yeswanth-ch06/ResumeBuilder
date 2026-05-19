@@ -117,24 +117,24 @@
         <h2>Projects</h2>
 
         <label>Project 1</label>
-        <input type="text" name="proj1">
-        <textarea name="projdesc1"></textarea>
-        <button type="button" onclick="generateDescription()">Generate Description</button>
+        <input type="text" id="proj1">
+        <textarea id="projdesc1"></textarea>
+        <button type="button" onclick="generateDescription(1)">Generate Description</button>
 
         <label>Project 2</label>
-        <input type="text" name="proj2">
-        <textarea name="projdesc2"></textarea>
-        <button type="button" onclick="generateDescription()">Generate Description</button>
+        <input type="text" id="proj2">
+        <textarea id="projdesc2"></textarea>
+        <button type="button" onclick="generateDescription(2)">Generate Description</button>
         
         <label>Project 3</label>
-        <input type="text" name="proj3">
-        <textarea name="projdesc3"></textarea>
-        <button type="button" onclick="generateDescription()">Generate Description</button>
+        <input type="text" id="proj3">
+        <textarea id="projdesc3"></textarea>
+        <button type="button" onclick="generateDescription(3)">Generate Description</button>
 
         <label>Project 4</label>
-        <input type="text" name="proj4">
-        <textarea name="projdesc4"></textarea>
-        <button type="button" onclick="generateDescription()">Generate Description</button>
+        <input type="text" id="proj4">
+        <textarea id="projdesc4"></textarea>
+        <button type="button" onclick="generateDescription(4)">Generate Description</button>
         
     </div>
 
@@ -178,9 +178,9 @@
 
 </form>
 <script>
-async function generateDescription() {
+async function generateDescription(num) {
 
-    let project = document.getElementById("project_name").value;
+    let project = document.getElementById(`proj${num}`).value;
 
     let response = await fetch("/generate_project", {
         method: "POST",
@@ -192,7 +192,7 @@ async function generateDescription() {
 
     let data = await response.json();
 
-    document.getElementById("project_desc").value = data.description;
+    document.getElementById(`projdesc${num}`).value = data.description;
 }
 </script>
 </body>
