@@ -123,26 +123,13 @@
     </div>
 
     <!-- Certificates -->
-    <div class="section">
+    <div class="certificates-section">
         <h2>Certificates</h2>
-
-        <label>Certificate 1:</label>
-        <input type="text" name="cert1">
-
-        <label>Certificate 2:</label>
-        <input type="text" name="cert2">
-
-        <label>Certificate 3:</label>
-        <input type="text" name="cert3">
-
-        <label>Certificate 4:</label>
-        <input type="text" name="cert4">
-
-        <label>Certificate 5:</label>
-        <input type="text" name="cert5">
-
-        <label>Certificate 6:</label>
-        <input type="text" name="cert6">
+        <div class="certificates-div1">
+            <label>Certificate 1:</label>
+            <input type="text" name="cert1">
+            <button type="button" onclick="addCert">Add</button>
+        </div>
     </div>
     <!-- Achievements -->
     <div>
@@ -152,9 +139,26 @@
 
 
     <button type="submit" name="layout" value="single" >Single Layout Resume</button>
-    <button type="submit" name="layout" value="three" >Three Layout Resume</button>
 
 </form>
+
+<script>
+    let certificates = 1;
+    function addCert(){
+        certificates++;
+        const container = document.getElementById("certificates-section");
+        const cont = document.getElementById("certificates-div");
+        cont.innerHTML = `<label>Certificate${certificates}</label>
+        <input type="text" name="cert${certificates}>
+        <button type="button" onclick="item.remove(this)" class="remove">Remove</button>`;
+        container.appendChild(cont);
+    }
+    
+    // Remove
+    function removeItem(button){
+        button.parentElement.remove();
+    }
+</script>
 
 </body>
 </html>
