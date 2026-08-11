@@ -6,17 +6,18 @@
     </head>
     <body>
         <div class="main">
+            <!-- Personel Information -->
             <h2>{{data.name}}</h2>
-            <p class="details">{{data.number}} | {{data.email}} | {{data.linkedin}} | {{data.code}} | {{data.git}}</p>
+            <p class="details">{{data.number}} | {{data.email}} | {{data.linkedin}}</p>
             <h3>Career Objective</h3>
             <p>{{data.desc}}</p>
+
+            <!-- Education -->
             <h3>Education</h3>
-            <ul>
-                <li>{{data.btech}}
-                    Bachelor Of Technology (B-Tech) in {{data.branch}} {{data.grdyear-4}} - {{data.grdyear}}
-                    <p>Dedicated and detail-oriented B.Tech student in {{data.branch}} with a CGPA of {{data.cgpa}}, strong analytical skills, and practical project experience. Seeking a challenging role to leverage technical expertise and deliver impactful solutions.</p>
-                </li>
-            </ul>
+            <strong>{{data.btech}} </strong><p>- {{data.grdyear-4}} - {{data.grdyear}}</p>
+            <p><i>Bachelor Of Technology in {{data.branch}} with {{data.cgpa}}</i></p>
+
+            <!-- Skills -->
             <h3>Technical Skills</h3>
             <ul>
                 <li><b>Programming: </b>{{", ".join(data.progskills)}}</li>
@@ -25,6 +26,8 @@
                 <li><b>Tools: </b>{{", ".join(data.tools)}}</li>
                 <li><b>Operating Systems: </b>{{", ".join(data.os_skills)}}</li>
             </ul>
+
+            <!-- Experience -->
             {% if exps | length>0 %}
                 <h3>Experience</h3>
                 <ul>
@@ -39,6 +42,8 @@
                     {% endfor %}
                 </ul>
             {% endif %}
+
+            <!-- Projects -->
             {% if projs | length>0 %}
                 <h3>Projects</h3>
                 <ul>
@@ -53,20 +58,11 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-            {% if certs | length>0 %}
-                <h3>Certificates</h3>
-                <ul>
-                    {% for crt,crtd in certs %}
-                        <li><b>{{crt}}</b>
-                            <ul>
-                                {% for d in crtd.split("\n") %}
-                                    <li><p>{{d}}</p></li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+
+            <!-- Certificates -->
+            <ul>
+                <li></li>
+            </ul>
         </div>
     </body>
 </html>
