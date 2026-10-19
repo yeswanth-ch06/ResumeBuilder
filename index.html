@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Generator - ATS Tech Format</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font for Editor UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">📄</span>
+      <span>ATS Resume Generator</span>
+    </div>
+    <div class="nav-actions">
+      <button id="load-sample-btn" class="btn btn-secondary" onclick="loadSampleData()">
+        Load Sample Resume
+      </button>
+      <button id="clear-btn" class="btn btn-secondary" onclick="clearForm()">
+        Clear Form
+      </button>
+      <button id="print-btn" class="btn btn-primary" onclick="printResume()">
+        🖨️ Print / Download PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container: Left Form + Right Live Preview -->
+  <div class="app-container">
+
+    <!-- ==========================================
+         LEFT SIDE: INPUT FORM
+         ========================================== -->
+    <div class="form-container">
+      <h2>Edit Resume Details</h2>
+      <p class="form-hint">Type in the boxes below to build your resume in real time.</p>
+
+      <!-- Section: Personal Info -->
+      <div class="form-section">
+        <h3>1. Header & Contact Information</h3>
+
+        <div class="form-group">
+          <label for="input-name">Full Name</label>
+          <input type="text" id="input-name" placeholder="Full Name" oninput="updateResume()">
+        </div>
+
+        <div class="form-group">
+          <label for="input-title">Target Role / Title</label>
+          <input type="text" id="input-title" placeholder="Applying for Role" oninput="updateResume()">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="input-phone">Phone Number</label>
+            <input type="text" id="input-phone" placeholder="9876543210" oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-email">Email Address</label>
+            <input type="email" id="input-email" placeholder="example@gmail.com" oninput="updateResume()">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input-linkedin">LinkedIn / Portfolio URL</label>
+          <input type="text" id="input-linkedin" placeholder="www.linkedin.com/in/username" oninput="updateResume()">
+        </div>
+      </div>
+
+      <!-- Section: Career Objective -->
+      <div class="form-section">
+        <h3>2. Career Objective</h3>
+        <div class="form-group">
+          <label for="input-objective">Summary / Objective</label>
+          <textarea id="input-objective" rows="4"
+            placeholder="Write a brief professional summary or career objective outlining your skills, domain knowledge, and career goals..."
+            oninput="updateResume()"></textarea>
+        </div>
+      </div>
+
+      <!-- Section: Education -->
+      <div class="form-section">
+        <h3>3. Education</h3>
+        <div class="form-group">
+          <label for="input-college">College Name & (Years)</label>
+          <input type="text" id="input-college" placeholder="ABC Institute of Technology (2020 - 2024)"
+            oninput="updateResume()">
+        </div>
+        <div class="form-group">
+          <label for="input-degree">Degree, Specialization & CGPA / Score</label>
+          <input type="text" id="input-degree"
+            placeholder="Bachelor of Technology in Computer Science and Engineering Data Science — 8.5 CGPA"
+            oninput="updateResume()">
+        </div>
+      </div>
+
+      <!-- Section: Technical Skills -->
+      <div class="form-section">
+        <h3>4. Technical Skills</h3>
+        <p class="field-hint">Enter each skill category on a new line (Category: Skill1, Skill2):</p>
+        <div class="form-group">
+          <textarea id="input-skills" rows="5"
+            placeholder="Programming: Python&#10;Databases: MySQL&#10;Tools & Frameworks: Git"
+            oninput="updateResume()"></textarea>
+        </div>
+      </div>
+
+      <!-- Section: Experience -->
+      <div class="form-section">
+        <h3>5. Experience</h3>
+
+        <!-- Experience Item 1 -->
+        <div class="sub-card">
+          <div class="form-group">
+            <label for="input-exp1-title">Role, Company & Duration</label>
+            <input type="text" id="input-exp1-title"
+              placeholder="Software Engineer Intern, Tech Corp (Jun 2024 - Aug 2024)" oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-exp1-points">Points / Responsibilities (1 per line)</label>
+            <textarea id="input-exp1-points" rows="4"
+              placeholder="Built a responsive web application that reduced manual tasks.&#10;Collaborated with cross-functional teams to integrate REST APIs.&#10;Wrote clean unit tests to improve code reliability."
+              oninput="updateResume()"></textarea>
+          </div>
+        </div>
+
+        <!-- Experience Item 2 -->
+        <div class="sub-card">
+          <div class="form-group">
+            <label for="input-exp2-title">Role 2, Company & Duration (Optional)</label>
+            <input type="text" id="input-exp2-title"
+              placeholder="Junior Developer Intern, Software Solutions (Jan 2024 - May 2024)" oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-exp2-points">Points / Responsibilities (1 per line)</label>
+            <textarea id="input-exp2-points" rows="4"
+              placeholder="Explored modern workflows and automated recurring processes.&#10;Designed database schemas and optimized SQL queries.&#10;Documented project features and API endpoints for team members."
+              oninput="updateResume()"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Projects -->
+      <div class="form-section">
+        <h3>6. Projects</h3>
+
+        <!-- Project 1 -->
+        <div class="sub-card">
+          <div class="form-group">
+            <label for="input-proj1-title">Project 1: Name | Link</label>
+            <input type="text" id="input-proj1-title" placeholder="E-Commerce Platform | myproject.com"
+              oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-proj1-points">Project 1 Details (1 per line)</label>
+            <textarea id="input-proj1-points" rows="3"
+              placeholder="Developed a full-stack web application with secure payment processing.&#10;Backend: Node.js, Express | Frontend: HTML, CSS, JavaScript | Database: MongoDB"
+              oninput="updateResume()"></textarea>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="sub-card">
+          <div class="form-group">
+            <label for="input-proj2-title">Project 2: Name | Link</label>
+            <input type="text" id="input-proj2-title" placeholder="Task Manager App | taskmanager.dev"
+              oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-proj2-points">Project 2 Details (1 per line)</label>
+            <textarea id="input-proj2-points" rows="3"
+              placeholder="Built a responsive productivity app with real-time updates and task analytics.&#10;Backend: Python (Flask) | Frontend: HTML, CSS | Database: SQLite"
+              oninput="updateResume()"></textarea>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="sub-card">
+          <div class="form-group">
+            <label for="input-proj3-title">Project 3: Name | Link (Optional)</label>
+            <input type="text" id="input-proj3-title" placeholder="Personal Portfolio | yourportfolio.com"
+              oninput="updateResume()">
+          </div>
+          <div class="form-group">
+            <label for="input-proj3-points">Project 3 Details (1 per line)</label>
+            <textarea id="input-proj3-points" rows="2"
+              placeholder="Designed and deployed a clean, mobile-friendly personal portfolio.&#10;Frontend: HTML, CSS, Vanilla JavaScript"
+              oninput="updateResume()"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Certificates -->
+      <div class="form-section">
+        <h3>7. Certificates</h3>
+        <p class="field-hint">Enter each certificate on a new line:</p>
+        <div class="form-group">
+          <textarea id="input-certificates" rows="4" placeholder="Certificates if any"
+            oninput="updateResume()"></textarea>
+        </div>
+      </div>
+
+      <!-- Section: Achievements -->
+      <div class="form-section">
+        <h3>8. Achievements</h3>
+        <p class="field-hint">Enter each achievement on a new line:</p>
+        <div class="form-group">
+          <textarea id="input-achievements" rows="4" placeholder="Achievements if any"
+            oninput="updateResume()"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==========================================
+         RIGHT SIDE: RESUME LIVE PREVIEW (MATCHES PDF)
+         ========================================== -->
+    <div class="preview-wrapper">
+      <div class="preview-header-bar">
+        <span>A4 Live Template Preview</span>
+        <span class="preview-note">Matches standard ATS reference layout</span>
+      </div>
+
+      <!-- Exact A4 Resume Page -->
+      <div class="resume-sheet" id="resume-sheet">
+
+        <!-- Header (Centered) -->
+        <div class="res-header">
+          <h1 id="preview-name">YOUR FULL NAME</h1>
+          <div class="res-subtitle" id="preview-title">Professional Title / Headline</div>
+          <div class="res-contact" id="preview-contact">
+            <span id="preview-phone">Phone Number</span>
+            <span class="pipe">|</span>
+            <span id="preview-email">email@example.com</span>
+            <span class="pipe">|</span>
+            <span id="preview-linkedin">www.linkedin.com/in/username</span>
+          </div>
+        </div>
+
+        <!-- 1. CAREER OBJECTIVE -->
+        <div class="res-section" id="sec-objective">
+          <h2 class="res-section-title">CAREER OBJECTIVE</h2>
+          <div class="res-body">
+            <p id="preview-objective">
+              Write a brief professional summary or career objective outlining your skills, domain knowledge, and career
+              goals.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. EDUCATION -->
+        <div class="res-section" id="sec-education">
+          <h2 class="res-section-title">EDUCATION</h2>
+          <div class="res-body">
+            <div class="res-entry-title" id="preview-college">
+              University / College Name (Year - Year)
+            </div>
+            <div class="res-entry-desc" id="preview-degree">
+              Degree, Specialization / Major — CGPA / Score
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TECHNICAL SKILLS -->
+        <div class="res-section" id="sec-skills">
+          <h2 class="res-section-title">TECHNICAL SKILLS</h2>
+          <div class="res-body" id="preview-skills">
+            <!-- Bullet points generated via script.js -->
+          </div>
+        </div>
+
+        <!-- 4. EXPERIENCE -->
+        <div class="res-section" id="sec-experience">
+          <h2 class="res-section-title">EXPERIENCE</h2>
+          <div class="res-body" id="preview-experience">
+            <!-- Experience entries generated via script.js -->
+          </div>
+        </div>
+
+        <!-- 5. PROJECTS -->
+        <div class="res-section" id="sec-projects">
+          <h2 class="res-section-title">PROJECTS</h2>
+          <div class="res-body" id="preview-projects">
+            <!-- Projects entries generated via script.js -->
+          </div>
+        </div>
+
+        <!-- 6. CERTIFICATES -->
+        <div class="res-section" id="sec-certificates">
+          <h2 class="res-section-title">CERTIFICATES</h2>
+          <div class="res-body" id="preview-certificates">
+            <!-- Certificate bullets generated via script.js -->
+          </div>
+        </div>
+
+        <!-- 7. ACHIEVEMENTS -->
+        <div class="res-section" id="sec-achievements">
+          <h2 class="res-section-title">ACHIEVEMENTS</h2>
+          <div class="res-body" id="preview-achievements">
+            <!-- Achievement bullets generated via script.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
